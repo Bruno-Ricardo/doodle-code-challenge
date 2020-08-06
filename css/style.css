@@ -1,0 +1,49 @@
+/*
+**	------------------------------------------
+**	Author: Bruno Götti
+**	Date: 06.08.2020
+**	Description: Basic CSS for a Basic Chat
+**	------------------------------------------
+*/
+
+
+
+/* The main Wrapper */
+.frame{
+    background:#e0e0de;
+    background-image: url("../assets/body_bg.png");
+    height:450px;
+    overflow:hidden;
+    padding:0;
+}
+/* Makes the last dive sticky to bottom */
+.frame > div:last-of-type{
+    position:absolute;
+    bottom:5px;
+    width:100%;
+}
+/* Wrapper for input - Outter padding applied here */
+.messageBody{	
+    background:#3798D4;
+    width:100%;
+    padding: 8px;
+}
+/* Input for text - percentage based, based on sceen shot*/
+.mytext{
+    border:0;
+    background:whitesmoke;
+    width: 75%;
+    padding: 8px;
+    color: #B3BCC3;
+    border-radius: 3px;
+}
+/* Input for sendig text- percentage based, based on screnshot */
+.mysubmit{
+	background-color:#FF876D;
+	width: 20%;
+	margin-left: 8px;
+	border-radius: 3px;
+	border:none;
+	padding: 8px 0px;
+	color: #FFFFFF;
+}
