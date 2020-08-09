@@ -14,18 +14,15 @@
 **	------------------------------------------
 */
 
-
 // VARIABLES
 var urlPost 	= 'https://chatty.kubernetes.doodle-test.com/api/chatty/v1.0';
 var token 		= 'o8iBiCCNgaVj';
 
 
 // Ready function for things to happen when the dom finishes loading
-$(document).ready(function(){
-	
+$(document).ready(function(){	
 	// Load the messages on page load
-	loadMessages();
-	
+	loadMessages();	
 	// Click funtionality for submitting text via JQUERY AJAX (POST)
 	// Some functionality to see if msg's can be sent 
 	$(".mysubmit").click(function(){
@@ -38,16 +35,10 @@ $(document).ready(function(){
 			headers: 		{'token': token},
 			data: 			JSON.stringify( { "message": $('.mytext').val(), "author": 'BrunoRicardo' } ),
 			processData: 	false,
-			success: 		function( data, textStatus, jQxhr ){
-				
-				//console.log(data);
-				//console.log(textStatus);
-				//console.log(jQxhr);
-				
+			success: 		function( data, textStatus, jQxhr ){						
 				// Test was successfull
 				// Load messages next..
-				loadMessages();
-				
+				loadMessages();				
 			},
 			error: function( jqXhr, textStatus, errorThrown ){
 				console.log( errorThrown );
@@ -72,15 +63,11 @@ function loadMessages (timestamp) {
 		msg.className = "msg msg_" + index;
 		msg.innerHTML += '<li class="author"> ' + data[index].author + '</li>';
 		msg.innerHTML += '<li class="msgtext"> ' + data[index].message + '</li>';
-		msg.innerHTML += '<li class="timestamp"> ' + data[index].timestamp + '</li>';
-			
-		console.log(data[index]);
-		
+		msg.innerHTML += '<li class="timestamp"> ' + data[index].timestamp + '</li>';		
 		msgWrapper.append(msg);
 		
 	});
 	// Append the Messages in dedicated box	
 	$(".messagesContainer").append(msgWrapper);			
-
 	});
 }
