@@ -6,8 +6,6 @@
 **	------------------------------------------
 */
 
-
-
 /* The main Wrapper */
 .frame{
     background:#e0e0de;
@@ -15,6 +13,7 @@
     height:450px;
     overflow:hidden;
     padding:0;
+    max-width: 640px;
 }
 /* Makes the last dive sticky to bottom */
 .frame > div:last-of-type{
@@ -46,4 +45,28 @@
 	border:none;
 	padding: 8px 0px;
 	color: #FFFFFF;
+}
+
+.messagesContainer {
+	float: left;
+	width: 100%;
+	overflow-y: auto;
+	height: 87%;
+}
+
+.messagesContainer .msg {
+	padding: 10px 24px;
+	list-style: none;
+	border: 1px solid #BCC4CA;
+	width: auto;
+	float: left;
+	clear: both;
+	border-radius: 3px;
+	background-color: #F7F7F7;	
+}
+
+.msg .author,
+.msg .timestamp {
+	color: #BCC4CA;
+	font-size: 13px;
 }

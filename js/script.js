@@ -3,8 +3,17 @@
 **	Author: Bruno Götti
 **	Date: 06.08.2020
 **	Description: Basic Functionality
+* 	ToDO
+* 	- Encode special chars
+* 	- Add load Messages with Timestamp function
+* 	- Different class if self posted message ->> align right, bg color
+* 	- Submit on enter
+* 	- Clear text on submit
+*	- jump to bottom after send
+*	- ..	
 **	------------------------------------------
 */
+
 
 // VARIABLES
 var urlPost 	= 'https://chatty.kubernetes.doodle-test.com/api/chatty/v1.0';
@@ -13,6 +22,10 @@ var token 		= 'o8iBiCCNgaVj';
 
 // Ready function for things to happen when the dom finishes loading
 $(document).ready(function(){
+	
+	// Load the messages on page load
+	loadMessages();
+	
 	// Click funtionality for submitting text via JQUERY AJAX (POST)
 	// Some functionality to see if msg's can be sent 
 	$(".mysubmit").click(function(){
@@ -33,7 +46,7 @@ $(document).ready(function(){
 				
 				// Test was successfull
 				// Load messages next..
-				// loadMessages();
+				loadMessages();
 				
 			},
 			error: function( jqXhr, textStatus, errorThrown ){
@@ -56,10 +69,10 @@ function loadMessages (timestamp) {
 				
 	$.each(data, function(index) {
 		var msg = document.createElement("ul");
-		msg.className = "mmsg msg_" + index;
-		msg.innerHTML += '<li> ' + data[index].author + '</li>';
-		msg.innerHTML += '<li> ' + data[index].message + '</li>';
-		msg.innerHTML += '<li> ' + data[index].timestamp + '</li>';
+		msg.className = "msg msg_" + index;
+		msg.innerHTML += '<li class="author"> ' + data[index].author + '</li>';
+		msg.innerHTML += '<li class="msgtext"> ' + data[index].message + '</li>';
+		msg.innerHTML += '<li class="timestamp"> ' + data[index].timestamp + '</li>';
 			
 		console.log(data[index]);
 		
